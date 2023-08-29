@@ -21,6 +21,7 @@ jobs:
           variables: |
             owner: ${{ github.repository_owner }}
             name: ${{ github.event.repository.name }}
+          # Make sure to substitute "test" with your desired category slug.
           query: |
             query GetRepositoryInformation ($name: String!, $owner: String!) {
               repository(name: $name, owner: $owner) {
