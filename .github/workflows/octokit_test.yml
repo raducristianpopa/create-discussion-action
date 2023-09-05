@@ -1,0 +1,16 @@
+name: Octokit test
+on:
+    push:
+        branches: octokit
+jobs:
+    discussion:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v3
+              with:
+                  version: 18
+            - run: npm install @octokit/action
+            - run: node .github/actions/test.cjs
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
